@@ -36,6 +36,7 @@ def simple_gauss_elim_33(A, b):
     
     return x
 
+#sample values
 A = np.matrix([(3.0,2,1),(-1,4,5),(2,-8,10)])
 b = np.array([6,8,4])
 
