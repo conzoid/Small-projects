@@ -42,15 +42,3 @@ b = np.array([6,8,4])
 
 print(simple_gauss_elim_33(A, b))
 
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
