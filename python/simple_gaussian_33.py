@@ -31,7 +31,7 @@ def simple_gauss_elim_33(A, b):
         x[0,i] = mat[i,3]
         
         for j in range(i+1, 3):
-            x[0,i] -= mat[i, j]
+            x[0,i] -= mat[i, j] * x[0,j]
         x[0,i] /= mat[i,i]
     
     return x
