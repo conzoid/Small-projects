@@ -81,7 +81,7 @@ for i in range(items):
     A = np.random.rand(6,6)
     x = np.random.rand(6)
     b = np.dot(A, x)
-    sol = simple_gauss_elim_gen(A, b)
+    sol = gauss_elim_gen(A, b)
     
     try:
         assert np.max(np.abs(sol - x)) < 1e-12
