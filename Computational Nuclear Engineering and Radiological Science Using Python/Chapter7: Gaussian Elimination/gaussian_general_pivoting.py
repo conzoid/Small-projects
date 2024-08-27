@@ -1,4 +1,5 @@
 import numpy as np
+
 def pivot(mat):
     '''
     Function used for pivoting the augmented matrix
