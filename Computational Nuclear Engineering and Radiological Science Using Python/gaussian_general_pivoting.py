@@ -1,6 +1,34 @@
 import numpy as np
+def pivot(mat):
+    '''
+    Function used for pivoting the augmented matrix
 
-def simple_gauss_elim_gen(A, b):
+    Parameters
+    ----------
+    mat : numpy matrix
+        augmented matrix
+
+    Returns
+    -------
+    None.
+    
+    By-Product
+    ----------
+    Changes the input matrix mat
+    '''
+    
+    N,_ = mat.shape
+    
+    for i in range(N):
+        if np.max(mat[i:, i]) > np.absolute(np.min(mat[i:, i])):   #checks the absolute max 
+            max_index = i + mat[i:, i].argmax()
+        else:
+            max_index = i + mat[i:, i].argmin()
+        mat[[i, max_index]] = mat[[max_index, i]] 
+    
+    return
+    
+def gauss_elim_gen(A, b):
     '''
     General simple gaussian N*N solver involving pivoting
     
@@ -28,14 +56,8 @@ def simple_gauss_elim_gen(A, b):
     mat = np.zeros([N,N+1])
     mat[:, 0:N] = A
     mat[:, N] = b
-    
-    #pivoting
-    for i in range(N):
-        if np.max(mat[i:, i]) > np.absolute(np.min(mat[i:, i])):   #checks the absolute max 
-            max_index = i + mat[i:, i].argmax()
-        else:
-            max_index = i + mat[i:, i].argmin()
-        mat[[i, max_index]] = mat[[max_index, i]]    
+
+    pivot(mat)
     
     #reduction
     for i in range(1, N):
